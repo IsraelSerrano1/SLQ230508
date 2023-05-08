@@ -69,8 +69,8 @@ inner join suppliers S on p.supplier_id = S.supplier_id;
 select p.product_name, o.order_id, o.product_id, o.unit_price, o.quantity,o.discount from products p
 inner join order_details o on p.product_id = o.product_id;
 --OBTENER DE LAS ORDENES EL ID, SHIPPERID, NOMBRE DE LA COMPAÑÍA DE ENVIO (SHIPPERS)
-select O.order_id, S.shipper_id, S.company_name from orders O 
-inner join shippers S on O.ship_via = S.shipper_id;
+select o.order_id, s.shipper_id, s.company_name from orders o 
+inner join shippers s on o.ship_via = s.shipper_id;
 --Obtener el número de orden, país de envío (shipCountry) y el nombre del empleado de la tabla ordenes y empleados Queremos que salga el Nombre y Apellido del Empleado en una sola columna.
 select o.order_id, o.ship_country, concat(e.first_name,' ',e.last_name) as employee_name from orders o 
 inner join employees e on o.employee_id = e.employee_id;
