@@ -82,7 +82,7 @@ inner join employees e on o.employee_id = e.employee_id;
 --DE LAS TABLAS DE ORDENES Y DE EMPLEADOS join y group by / columna calculada
 select e.employee_id, concat(e.first_name, ' ', e.last_name)as employee_name, count(o.order_id) as orders 
 from employees e inner join orders o on e.employee_id = o.employee_id 
-group by e.employee_id;
+group by e.employee_id, employee_name;
 --OBTENER LA SUMA DE LA CANTIDAD VENDIDA Y EL PRECIO PROMEDIO POR NOMBRE DE PRODUCTO 
 --DE LA TABLA DE ORDERS DETAILS Y PRODUCTS
 select p.product_name, sum( o.quantity * o.unit_price) as sales, avg(o.unit_price) average_price 
